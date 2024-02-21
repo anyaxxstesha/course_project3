@@ -59,3 +59,13 @@ def sort_transactions_by_date(correct_transactions: list) -> list:
     """
     correct_transactions.sort(key=lambda transaction: transaction.date)
     return correct_transactions
+
+
+def show_latest_transactions(correct_transactions: list):
+    """
+    Выводит 5 последних транкзаций
+    """
+    amount_to_show = 5
+    for i in range(amount_to_show):
+        correct_transactions[i].encode_important_data()
+        print(correct_transactions[i].show())
