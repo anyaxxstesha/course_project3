@@ -51,3 +51,11 @@ def modificate_time_format(correct_transactions: list) -> list:
         dt = datetime.datetime.fromisoformat(dt_str)
         correct_transactions[i].date = dt
     return correct_transactions
+
+
+def sort_transactions_by_date(correct_transactions: list) -> list:
+    """
+    Сортирует транкзации по дате
+    """
+    correct_transactions.sort(key=lambda transaction: transaction.date)
+    return correct_transactions
