@@ -41,3 +41,9 @@ def test_remove_disabled_transactions(class_obj1, class_obj2, class_obj3):
 def test_modificate_time_format(class_obj2):
     funcs.modificate_time_format([class_obj2])
     assert class_obj2.date == datetime(2019, 5, 19, 12, 51, 49, 23880)
+
+
+def test_sort_transactions_by_date(class_obj2, class_obj3):
+    correct_transactions = funcs.modificate_time_format([class_obj2, class_obj3])
+    assert funcs.sort_transactions_by_date(correct_transactions) == [class_obj2, class_obj3]
+    
