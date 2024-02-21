@@ -47,3 +47,6 @@ class Transaction:
             attributes.append(string)
         attrs = ", ".join(attributes)
         return f'{self.__class__.__name__}({attrs})'
+
+    def __eq__(self, other):
+        return self.__dict__ == other.__dict__
