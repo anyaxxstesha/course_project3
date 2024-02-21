@@ -20,3 +20,14 @@ def class_obj2():
 
 def test_load_data():
     assert type(funcs.load_data()) == list
+
+
+def test_get_transactions_list():
+    transactions = funcs.load_data()
+    assert funcs.get_transactions_list(transactions) == [Transaction(441945886, "2019-08-26T10:50:58.294041",
+                                                                     "EXECUTED", "31957.58",
+                                                                     "руб.", "RUB",
+                                                                     "Перевод организации",
+                                                                     "Maestro 1596837868705199",
+                                                                     "Счет 64686473678894779589")]
+    
