@@ -32,3 +32,10 @@ class Transaction:
                 encoded_number = number[:4] + " " + number[4:6] + "**" + " **** " + number[-4:]
                 encoded_card = ' '.join(getted_attr.split()[:-1]) + ' ' + encoded_number
                 setattr(self, attr, encoded_card)
+
+    def show(self):
+        formatted_time = self.date.strftime("%d.%m.%Y")
+        str1 = f'{formatted_time} {self.description}\n'
+        str2 = f'{self.from_} -> {self.to}\n'
+        str3 = f'{self.operation_amount} {self.currency_name}\n'
+        return str1 + str2 + str3
