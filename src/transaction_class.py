@@ -17,3 +17,18 @@ class Transaction:
                       self.currency_code, self.description, self.from_, self.to]
         if None in check_list:
             self.is_broken = True
+
+    def encode_important_data(self):
+        attrs_to_encode = ("from_", "to")
+
+        for attr in attrs_to_encode:
+            getted_attr = getattr(self, attr)
+            if "счет" in getted_attr.lower():
+                number = getted_attr.split()[1]
+                encoded_schet = getted_attr.split()[0] + " **" + number[-4:]
+                setattr(self, attr, encoded_schet)
+            else:
+                number = getted_attr.split()[-1]
+                encoded_number = number[:4] + " " + number[4:6] + "**" + " **** " + number[-4:]
+                encoded_card = ' '.join(getted_attr.split()[:-1]) + ' ' + encoded_number
+                setattr(self, attr, encoded_card)
