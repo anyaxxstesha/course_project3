@@ -40,3 +40,14 @@ def remove_disabled_transactions(transactions: list) -> list:
     """
     correct_transactions = list(filter(lambda i: not i.is_broken and i.state == "EXECUTED", transactions))
     return correct_transactions
+
+
+def modificate_time_format(correct_transactions: list) -> list:
+    """
+    Из формата ISO 8601 преобразовать дату и время транкзации в объект datetime
+    """
+    for i in range(len(correct_transactions)):
+        dt_str = correct_transactions[i].date
+        dt = datetime.datetime.fromisoformat(dt_str)
+        correct_transactions[i].date = dt
+    return correct_transactions
