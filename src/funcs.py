@@ -32,3 +32,11 @@ def get_transactions_list(data: list) -> list:
                                   currency_code, description, from_, to)
         transactions.append(transaction)
     return transactions
+
+
+def remove_disabled_transactions(transactions: list) -> list:
+    """
+    Удаляет не исполненные транкзаии и сломанные транкзации
+    """
+    correct_transactions = list(filter(lambda i: not i.is_broken and i.state == "EXECUTED", transactions))
+    return correct_transactions
