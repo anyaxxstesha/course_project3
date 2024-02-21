@@ -39,3 +39,11 @@ class Transaction:
         str2 = f'{self.from_} -> {self.to}\n'
         str3 = f'{self.operation_amount} {self.currency_name}\n'
         return str1 + str2 + str3
+
+    def __repr__(self):
+        attributes = []
+        for k, v in self.__dict__.items():
+            string = f"{k}={v}"
+            attributes.append(string)
+        attrs = ", ".join(attributes)
+        return f'{self.__class__.__name__}({attrs})'
